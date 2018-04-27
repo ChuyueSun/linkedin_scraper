@@ -15,11 +15,12 @@ class Person(Scraper):
     also_viewed_urls = []
     linkedin_url = None
 
-    def __init__(self, linkedin_url = None, name = None, experiences = [], educations = [], driver = None, get = True, scrape = True):
+    def __init__(self, linkedin_url = None, name = None, experiences = None, educations = None, driver = None, get = True, scrape = True):
+        
         self.linkedin_url = linkedin_url
         self.name = name
-        self.experiences = experiences
-        self.educations = educations
+        self.experiences = experiences if experiences is not None else []
+        self.educations = educations if educations is not None else []
 
         if driver is None:
             try:
